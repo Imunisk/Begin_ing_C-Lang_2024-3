@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main(void) {
+      int age = 20;
+      printf(%d\n", age)    //"" -누락
+      age = 21
+      printf(%d\n, age);
+      return 0;
+}
+
+#include <stdio.h>
+
+int main(void) {
+      int age = 2- 오타
+      printf("%d\n", age)
+      age = 21
+      printf(%d\n", age)     //; -누락
+      return 0;
+}
+
+ 
+      scanf_s("%d", age);     //& -누락
