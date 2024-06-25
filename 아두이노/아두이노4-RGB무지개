@@ -1,5 +1,7 @@
-//아두이노-RGB무지개
-//RGB LED 무지개색(빨주노초파남보) 색상구현하기
+// 아두이노- RGB 무지개색 구현하기 (ft.아날로그)
+// RGB LED를 사용합니다.
+
+
 
 #define RedPin 9           //Red = 9번핀
 #define GreenPin 10        //Green = 10번핀
