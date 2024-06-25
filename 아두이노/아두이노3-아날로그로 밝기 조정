@@ -1,0 +1,16 @@
+// 아두이노-아날로그로 밝기 조정 (점점 밝아짐.)
+// 0~255사이의 정수
+
+
+void setup() {
+}
+void loop() {
+}
+analogWrite(11, 0);
+delay( 500 );
+analogWrite(11, 50);
+analogWrite(11, 100);
+delay( 500 );
+delay( 500 );
+analogWrite(11, 255);
+delay( 500 );
