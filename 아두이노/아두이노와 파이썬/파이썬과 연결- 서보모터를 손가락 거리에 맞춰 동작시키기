@@ -1,0 +1,59 @@
+// 파이썬과 연결- 서보모터를 손가락 거리에 맞춰 동작시키기
+
+
+import cv2
+import time
+import playcode
+from playcode.pycode import *
+import math
+import pyfirmata # Arduino
+
+def move_servo(v): # Arduino
+    servo.write(v)
+
+pTime = 0
+cTime = 0
+length = 0
+board = None
+
+cap = cv2.VideoCapture(0)
+
+result = playcode.pycode.serial_ports()
+command = input('Input COM Port number:')
+c = ('COM%s'% command)
+print('%s Connected.'% c)
+
+if board is None: # Arduino
+    board = pyfirmata.Arduino(c)
+    servo = board.get_pin('d:11:s')
+    print("Communication Successfully started")
+
+detector = playcode.pycode.handDetector()
+
+while True:
+    success, img = cap.read()
+    img = cv2.flip(img,1)
+    img = detector.findHands(img, draw=True )
+    lmList = detector.findPosition(img, draw=True)
+
+    if len(lmList) != 0:
+        x1,y1 = lmList[4][1],lmList[4][2]
+        x2,y2 = lmList[8][1],lmList[8][2]
+
+        cv2.circle(img,(x1,y1),15,(255,0,255),cv2.FILLED)
+        cv2.circle(img,(x2,y2),15,(255,0,255),cv2.FILLED)
+        cv2.line(img,(x1,y1),(x2,y2),(255,0,255),3)
+
+        length = math.hypot(x2-x1,y2-y1)
+
+    move_servo(length)# Arduino
+
+    cv2.putText(img, f'LEN:{int(length)}', (20, 30), cv2.FONT_HERSHEY_PLAIN, 1.5, (255, 0, 0), 2)
+    cv2.putText(img, "Press 'q' key to Quit", (350, 30), cv2.FONT_HERSHEY_PLAIN, 1.5, (255, 0, 0), 2)
+
+    cv2.imshow("Image", img)
+    if cv2.waitKey(1) == ord('q'):
+      cv2.destroyAllWindows()
+      break
+
+    
