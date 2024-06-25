@@ -1,0 +1,28 @@
+// 아두이노1- led깜빡이기
+// 5G, GND.
+// 전선으로 LED와 저항 연결.
+
+
+void setup() {
+  pinMode(13, OUTPUT);
+}
+
+void loop() {
+  delay(500); 
+  digitalWrite(13, HIGH);  //led on
+  delay(500); 
+  digitalWrite(13, LOW);  //led off
+
+
+  delay(200); 
+  digitalWrite(13, HIGH);  //led on 깜박깜박 1st
+  delay(200); 
+  digitalWrite(13, LOW);  //led off
+  delay(200); 
+  digitalWrite(13, HIGH);  //led on 깜박깜박 2nd
+  delay(200); 
+  digitalWrite(13, LOW);  //led off
+}
+
+
+// 결과물:  띠-- 띠,띠   띠-- 띠,띠   띠-- 띠,띠
