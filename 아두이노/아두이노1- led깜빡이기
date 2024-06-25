@@ -26,3 +26,31 @@ void loop() {
 
 
 // 결과물:  띠-- 띠,띠   띠-- 띠,띠   띠-- 띠,띠
+
+
+
+
+// 또 다른 방법
+// LED 두개. 3번깜빡이기.
+/*
+void setup() {
+  pinMode(13, OUTPUT);
+  pinMode(A0, OUTPUT);
+}
+
+void loop() {
+  for(int i=0;i<3;i++) {
+    digitalWrite(13, HIGH);  // 13번 led on
+    delay(500); 
+    digitalWrite(13, LOW);
+    delay(500); 
+  }
+
+  for(int j=0;j<3;j++) {
+    digitalWrite(A0, HIGH);  // A0 led on
+    delay(500); 
+    digitalWrite(A0, LOW);
+    delay(500); 
+  }
+}
+*/
