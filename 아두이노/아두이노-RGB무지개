@@ -1,0 +1,31 @@
+//아두이노-RGB무지개
+//RGB LED 무지개색(빨주노초파남보) 색상구현하기
+
+#define RedPin 9           //Red = 9번핀
+#define GreenPin 10        //Green = 10번핀
+#define BluePin 11         //Blue = 9번핀
+
+// RGB배열 {RedPin, GreenPin, BluePin}을 무지개색의 각 색상값으로 2차원 배열 만들기 
+int Color[7][3] = {{255, 0, 0},         //빨간색
+                   {255, 50, 0},      //주황색
+                   {255, 255, 0},      //노란색
+                   {0, 255, 0},        //초록색
+                   {0, 0, 255},        //파란색
+                   {0, 5, 70},         //남색
+                   {100, 0, 255}} ;    //보라색
+
+void setup() {
+}
+
+void loop() {
+  for(int ColorNo=0; ColorNo<7; ColorNo++){
+    analogWrite(RedPin, Color[ColorNo][0]);      //RedPin 아날로그 출력
+    analogWrite(GreenPin, Color[ColorNo][1]);    //GreenPin 아날로그 출력
+    analogWrite(BluePin, Color[ColorNo][2]);     //BluePin 아날로그 출력
+    delay(1000);
+    analogWrite(RedPin, 0);
+    analogWrite(GreenPin, 0);
+    analogWrite(BluePin, 0);
+    delay(1000);    
+  }
+}
