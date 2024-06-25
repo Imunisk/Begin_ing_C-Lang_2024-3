@@ -1,0 +1,21 @@
+// 아두이노와 시리얼 통신하기
+
+// 사전 작업: 아두이노 연결하여 'Firmata'라이브러리 가져와 스케치 업로드한다.
+// 아두이노 창은 닫는다.
+// 아래 코드에 PIN은 8에 아두이노 8번 핀에 LED 달아놓았기 떄문.
+
+#!/usr/bin/env python3
+from pyfirmata import Arduino
+PIN = 8
+DELAY = 1
+board = None
+def Blink():
+    global board # if board is None:
+    board = Arduino(‘COM16’)                         //해당 포트명을 기입하기
+    print("Communication Successfully started")
+    while True:
+         board.digital[PIN].write(1)
+         board.pass_time(DELAY)
+         board.digital[PIN].write(0)
+         board.pass_time(DELAY)
+Blink()
