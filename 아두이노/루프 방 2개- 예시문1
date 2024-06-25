@@ -1,0 +1,76 @@
+//루프 방 2개 만드는 경우 - 예시문1 - LED 2개
+//1순위 방 : TaskAnalogRead
+//2순위 방 : TaskBlink
+//   while(1) { }을 For 문으로 작성하면, for(;;) 이다.
+
+
+
+
+#include <Arduino_FreeRTOS.h>
+
+// define two tasks for Blink & AnalogRead
+void TaskBlink( void *pvParameters );
+void TaskAnalogRead( void *pvParameters );
+
+// the setup function runs once when you press reset or power the board
+void setup() {
+  
+  // Now set up two tasks to run independently.
+  xTaskCreate(
+    TaskBlink
+    ,  "Blink"   // A name just for humans
+    ,  128  // This stack size can be checked & adjusted by reading the Stack Highwater
+    ,  NULL
+    ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+    ,  NULL );
+
+  xTaskCreate(
+    TaskAnalogRead
+    ,  "AnalogRead"
+    ,  128  // Stack size
+    ,  NULL
+    ,  1  // Priority
+    ,  NULL );
+
+}
+
+
+
+void loop()
+{
+  // Empty. Things are done in Tasks.
+}
+
+
+
+/*--------------------------------------------------*/
+/*---------------------- Tasks ---------------------*/
+/*--------------------------------------------------*/
+
+void TaskBlink(void *pvParameters)  // This is a task.
+{
+  (void) pvParameters;
+  pinMode(13, OUTPUT);
+  while(1) {
+    digitalWrite(13, HIGH);  // 13번 led on
+    delay(500); 
+    digitalWrite(13, LOW);
+    delay(500); 
+  }
+}
+
+void TaskAnalogRead(void *pvParameters)  // This is a task.
+{
+  (void) pvParameters;
+  pinMode(A0, OUTPUT);
+  while(1) {
+    digitalWrite(A0, HIGH);  // A0 led on
+    delay(500); 
+    digitalWrite(A0, LOW);
+    delay(500); 
+  }
+}
+
+
+
+
