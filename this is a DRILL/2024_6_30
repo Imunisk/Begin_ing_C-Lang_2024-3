@@ -1,0 +1,215 @@
+// 꾸준히 코딩 연습. THIS is a drill.
+
+
+// 인원점검 아침점호
+#include <stdio.h>
+
+int main(void) {
+  printf("Hello, this is captain speaking.\n Please Speak up for yourself one by one.");
+  for(int i=0; i<5; i++) {
+    prinf("This is serial number %d\n. Over.", i+1);
+  }
+  printf("The usual daily counting period is successfully completed. Job.well.DONE.");
+
+  return 0;
+}
+
+
+// Guess, just a guess
+
+#include <stdio.h>
+
+int main(void) {
+  int William;
+  printf("fuzzed Voice : This is not a drill. Ain't no flip-flops.\n");
+  printf("fuzzed Voice : State clearly what you are.\n");
+  printf("(\nchoose and type one specific number around 1-10 you'd like.) \n Type one number : ");
+  scanf_s("%d",&William);
+  printf("(You chose to be a pilot code %d.)\n",William);
+  printf("you : this is Sergent William speaking. Right on the %d ground border.\n",William);
+  printf("\n(Think up one name that comes up in your mind. Type that name below.");
+
+  char Voice;
+  scanf_s("%s", &Voice);
+  printf("\ngrumpy Voive : Noted.\n");
+  printf("grumpy Voice : All right. This was just me, Mr.great &s. Over.\n", Voice);
+
+  return 0;
+}
+
+/////////
+
+#include <stdio.h>
+int main(void) {
+  float f= 36.5f;
+  printf("%f\n",f);
+  double d= 11.234;
+  printf("%.2lf\n",d);
+
+  return 0;
+}
+
+#include <stdio.h>
+
+int main(void) {
+  float num= 3.14f;
+  printf("%f\n",num);
+  printf("%.1f\n",num+0.02);
+
+  return 0;
+}
+
+#include <stdio.h>
+int main(void) {
+  int age= 20;
+  printf("%d\n",age);
+  age=21;
+  printf("%d\n",age);
+  return 0;
+}
+
+#include <stdio.h>
+
+int main(void) {
+  float f= 2121.1020f;
+  printf("%.3f",f);
+  return 0;
+}
+
+
+// 입력받기, 경찰조서 작성하기
+#include <stdio.h>
+
+int main(void) {
+  // 이름
+  char name[256];
+  printf(" I AM 신뢰에 상징 경찰이애요. 이름이 뭐예요? ");
+  scanf_s("%s",name,sizeof[name]);
+
+  int age;
+  printf("몇 살이시죠? ");
+  scanf_s("%d",&age);
+
+  float weight;
+  printf("몸무게는 몇 kg이에요? ");
+  scanf_s("%f",&weight);
+
+  double height;
+  printf("키는 몇 cm이에요? ");
+  scanf_s("%lf",&height);
+
+  //작성한 조서 출력하기
+  printf("\n\n ---  용의자 정보 ---\n\n");
+  printf(" 이름  : %s\n",name); 
+  printf(" 나이  : %d\n",age);
+  printf(" 체중  : %.1f",weight);
+  printf(" 신장  : %.1lf",height);
+
+  return 0;
+}
+
+
+피라미드
+#include <stdio.h>
+
+int main(void) {
+  for (int i=0; i<5; i++) {
+    for (int j=i; j<4; j++) {
+      printf("S");
+    }
+    for (int k=0; k<=i*2+1                                                        ; k++) {
+      printf("*");
+    }
+    printf(" ");
+  }
+  return 0;
+}
+
+// - 마이너스 연산자
+#include <stdio.h>
+
+int main(void) {
+  for (int i=5; i>0; i--) {
+    for (int j=i; j>0; j--) {
+      printf("*");
+    }
+    printf(" ");
+  }
+  return 0;
+}
+
+
+
+// 숫자 맞추기
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main(void) {
+  srand(time(NULL));
+  int num= rand()%100+1;
+  int answer=0;
+  int chance=5;
+  printf("random num : %d\n",num);
+
+  //게임 유저가 몇번 차례에 정답을 맞출지 알 수
+  //없습니다. 그러니 For문 대신 While문을 사용.
+  while(1) {
+    printf("마음에 드는 숫자를 하나 입력해주세요 (1-100)\n 입력 숫자 : ");
+    scanf_s("%d",&answer);
+    if (answer>num) {
+      printf("DOWN\n");
+    } else if(answer<num) {
+      printf("UPP\n");
+    } else if(answer==num) {
+      printf("WOwwwwww\\n");
+      break;
+    } else {
+      printf("ERRRRORR\n");
+    }
+    chance--;
+    printf("남은 기회는 %d번 입니다.\n",chance);
+    if(chance==0) {
+      print("Noooooo\n");
+      break;
+    }
+  }
+  return 0;
+}
+
+
+#  include <stdio.h>
+
+int main(void) {
+  int input;
+  printf("값을 입력하세요 : ");
+  scanf_s("%d",&input);
+  printf("입력값 : %d\n", input);
+  return 0;
+}
+
+
+// pointer & Adress
+int main(void){
+  int Tom=1;
+  int Jake=2;
+  int Amy=3;
+  printf("Tom belongs to : %p, Tom's number : %d\n",&Tom,Tom);
+  return 0;
+}
+
+// pointer & Adress  - Ver.2
+int main(void){
+  int Tom=1;
+  int Jake=2;
+  int Amy=3;
+  printf("Tom belongs to : %p, Tom's number : %d\n",&Tom,Tom);
+  int * Pointer;
+  Pointer= &Tom;
+  printf("pointer : %p, *pointer : %d\n", Pointer, *Pointer);
+  *Pointer= *Pointer*3;
+  printf("new adress : %p, new number : %d\n",Pointer,*Pointer);
+  return 0;
+}
+
