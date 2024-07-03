@@ -1,0 +1,10 @@
+// 꾸준히 코딩 연습. THIS is a drill.
+
+
+//포인터
+
+int x = 7;        // 변수의 선언
+
+int *ptr = &x;    // 포인터의 선언
+
+int *pptr = &ptr; // 포인터의 참조
