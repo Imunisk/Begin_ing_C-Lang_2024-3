@@ -1,0 +1,39 @@
+/*
+
+
+
+ㅇ 다차원 배열
+int arrayAnimal[4][5];         //4바이5
+
+
+
+  
+ㅇ 배열 Arr  기차의 인덱스.
+
+배열ㅡ같은 자료형인  여러변수를 하나로통합.
+구조체ㅡ 다양한 자료형이어도 하나로통합.
+
+UDT
+=  user-def Data Type
+
+UDT 선언
+struct gameInfo gemeinfo1;
+[struct 구조체명 변수명]
+              s s   variable
+               DT  variable
+UDT 값저장
+변수 콤마 멤바 = "";
+
+UDT 포인터 선언
+[struct 구조체명 * 변수명]
+              s s   * variable
+               DT  * variable
+포인터 값에 주소 저장, 출력
+gamePtr = &gameInfo1;
+printf("게임 이름 : %s\n", (*gamePtr).name);
+ 
+UDT 별명
+typedef struct GameInfo 별명;
+또는 typedef struct GameInfo {~~~} 별명;
+
+*/
